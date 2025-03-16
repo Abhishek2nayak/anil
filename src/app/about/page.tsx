@@ -24,14 +24,15 @@ const About: React.FC = () => {
         <div className="relative md:w-[70%] w-[80%] mx-auto ">
           <div className="absolute md:-top-[7rem] -top-[4rem] flex flex-col items-center ">
             <div className="md:w-[50rem]  sm:w-[16rem] w-[10rem] flex justify-center">
-              <img
-                className="w-[500px] h-[500px] object-cover "
-                style={{ borderRadius: "50%", overflow: "hidden" }}
-                src="assets/profile_2.jpeg"
-                alt="Profile"
-              />
+            <img
+  className="w-full h-auto max-w-[500px] object-cover"
+  style={{ borderRadius: "50%", overflow: "hidden" }}
+  src="assets/profile_2.jpeg"
+  alt="Profile"
+/>
+
             </div>
-            <h2 className="sm:text-5xl text-yellow-500 text-5xl font-bold font-serif mt-20 text-center">
+            <h2 className="sm:text-2xl text-yellow-500 text-3xl font-bold font-serif mt-20 text-center">
               Ready to work with me?
             </h2>
             <p className="text-center text-md mt-6 text-yellow-800">
@@ -62,7 +63,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-      <section id="about" className="py-20 md:px-20 lg:px-20 ">
+      <section id="about" className="py-20 md:px-20 lg:px-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             {/* Heading */}
