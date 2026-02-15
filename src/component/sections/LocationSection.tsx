@@ -13,9 +13,11 @@ export default function LocationSection() {
       <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
         {/* Text Section */}
         <div className="flex-1 max-w-lg text-yellow-500 space-y-4 pl-10">
-          <h3 className="text-2xl font-semibold text-yellow-600">📍 Chennai</h3>
+          <h3 className="text-2xl font-semibold text-yellow-600">
+            📍 Tamil Nadu
+          </h3>
           <p className="text-lg text-yellow-500 leading-relaxed">
-            We offer the **best mehandi designs in Chennai**, bringing
+            We offer the **best mehandi designs in Tamil Nadu**, bringing
             professional mehandi artists to your doorstep. Whether it's a
             wedding, engagement, or festive celebration, we ensure stunning
             designs and a great experience.
@@ -37,15 +39,14 @@ export default function LocationSection() {
         {/* Larger Map Section */}
         <div className="flex-1 w-full h-[450px] shadow-lg rounded-lg overflow-hidden">
           <iframe
-            title="Chennai Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31107.23616943538!2d80.2212535852147!3d13.082680744893444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267d503e6782f%3A0xbff53b6cd7281466!2sChennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sin!4v1731768176100!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0731504467026!2d78.14056707579161!3d9.92786599017386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c50076c7c087%3A0x76798c62ed304192!2sCDR%20mall!5e0!3m2!1sen!2sin!4v1770921687363!5m2!1sen!2sin"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
             width="100%"
             height="100%"
-            frameBorder="0"
-            allowFullScreen
-            aria-hidden="false"
-            className="rounded-lg"
-          />
+          ></iframe>
         </div>
       </div>
     </div>

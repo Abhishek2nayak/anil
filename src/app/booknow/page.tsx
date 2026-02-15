@@ -1,8 +1,8 @@
 "use client";
 
-import { mobile_number } from "@/component/sections/HeroSection";
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { MOBILE_NUMBER } from "@/contstant";
 
 interface FormData {
   name: string;
@@ -26,7 +26,7 @@ export default function BookNow() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { id, value, type } = e.target as HTMLInputElement;
 
@@ -65,10 +65,10 @@ export default function BookNow() {
         `Occasion: ${occasion}\n` +
         `Mehndi Types: ${mehndiTypes.join(", ")}\n` +
         `Additional Notes: ${notes}\n\n` +
-        `Please confirm my booking.`
+        `Please confirm my booking.`,
     );
 
-    window.open(`https://wa.me/${mobile_number}?text=${message}`, "_blank");
+    window.open(`https://wa.me/${MOBILE_NUMBER}?text=${message}`, "_blank");
   };
 
   return (
@@ -88,13 +88,13 @@ export default function BookNow() {
       {/* Contact buttons */}
       <div className="flex flex-wrap justify-center gap-4 mt-10 mb-6">
         <a
-          href={`tel:${mobile_number}`}
+          href={`tel:${MOBILE_NUMBER}`}
           className="w-full sm:w-auto bg-yellow-600 text-white py-3 px-6 rounded text-center shadow-md hover:bg-yellow-700 transition duration-300"
         >
           Call Now
         </a>
         <a
-          href={`https://wa.me/${mobile_number}`}
+          href={`https://wa.me/${MOBILE_NUMBER}`}
           className="w-full sm:w-auto bg-yellow-100 text-yellow-800 py-3 px-6 rounded text-center shadow-md hover:bg-yellow-200 transition duration-300"
           target="_blank"
         >

@@ -36,19 +36,19 @@ const imagesData: ServiceImage[] = [
       "bridal henna",
     ],
   })),
-  // Traditional
-  ...Array.from({ length: 7 }, (_, i) => ({
+  // Engagement
+  ...Array.from({ length: 10 }, (_, i) => ({
     id: i + 1,
-    title: `Traditional Design`,
-    img: `assets/traditional/${i + 1}.jpeg`,
-    alt: `Traditional design ${i + 1}`,
-    category: "traditional" as CategoryType,
-    description: `Classic mehndi patterns with cultural and traditional elements.`,
+    title: `Engagement Design `,
+    img: `assets/engagement/${i + 1}.jpeg`,
+    alt: `Engagement design ${i + 1}`,
+    category: "engagement" as CategoryType,
+    description: `Elegant and intricate engagement mehndi design, perfect for weddings.`,
     seoKeywords: [
-      "traditional mehndi",
-      "classic henna",
-      "cultural mehndi",
-      "festive henna",
+      "engagement mehndi",
+      "wedding henna",
+      "dulhan mehndi",
+      "engagement henna",
     ],
   })),
   // Babyshower
@@ -64,21 +64,6 @@ const imagesData: ServiceImage[] = [
       "pregnancy henna",
       "maternity mehndi",
       "baby bump henna",
-    ],
-  })),
-  // Arabic
-  ...Array.from({ length: 6 }, (_, i) => ({
-    id: i + 1,
-    title: `Arabic Design`,
-    img: `assets/arabic/${i + 1}.jpeg`,
-    alt: `Arabic design ${i + 1}`,
-    category: "arabic" as CategoryType,
-    description: `Floral and flowing Arabic mehndi patterns with bold strokes.`,
-    seoKeywords: [
-      "arabic mehndi",
-      "simple henna",
-      "floral mehndi",
-      "bold mehndi",
     ],
   })),
   // Legs
@@ -124,6 +109,37 @@ const imagesData: ServiceImage[] = [
       "custom henna art",
       "face mehndi design",
       "unique mehndi",
+    ],
+  })),
+  // Arabic
+  ...Array.from({ length: 6 }, (_, i) => ({
+    id: i + 1,
+    title: `Arabic Design`,
+    img: `assets/arabic/${i + 1}.jpeg`,
+    alt: `Arabic design ${i + 1}`,
+    category: "arabic" as CategoryType,
+    description: `Floral and flowing Arabic mehndi patterns with bold strokes.`,
+    seoKeywords: [
+      "arabic mehndi",
+      "simple henna",
+      "floral mehndi",
+      "bold mehndi",
+    ],
+  })),
+
+  // Traditional
+  ...Array.from({ length: 7 }, (_, i) => ({
+    id: i + 1,
+    title: `Traditional Design`,
+    img: `assets/traditional/${i + 1}.jpeg`,
+    alt: `Traditional design ${i + 1}`,
+    category: "traditional" as CategoryType,
+    description: `Classic mehndi patterns with cultural and traditional elements.`,
+    seoKeywords: [
+      "traditional mehndi",
+      "classic henna",
+      "cultural mehndi",
+      "festive henna",
     ],
   })),
 ];

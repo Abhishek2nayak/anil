@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/component/Footer";
 import Header from "@/component/Header";
-import { mobile_number } from "@/component/sections/HeroSection";
+import { MOBILE_NUMBER } from "@/contstant";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -122,8 +122,8 @@ export default function RootLayout({
 
         {/* Fixed Call Button */}
         <a
-          href={`tel:+917730001180`}
-          // aria-label="Call Anil Mehndi Art"
+          href={`tel:${MOBILE_NUMBER}`}
+          aria-label="Call Prince Mehndi Art"
           className="flex justify-center items-center"
           style={{
             position: "fixed",

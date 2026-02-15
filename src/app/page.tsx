@@ -38,7 +38,7 @@ export default function Home() {
       <About />
       <Service />
       <Gallery />
-      <div className="p-10">
+      <div className="p-10 " style={{ width: "100vw" }}>
         <div className="text-center mb-12 mt-20">
           <h1 className="text-4xl font-bold text-yellow-500 mb-4">
             Customers Love Our Mehndi Art
@@ -49,36 +49,42 @@ export default function Home() {
             design, making your special moments even more memorable.
           </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <Testimonial
             name="Anjali Kapoor"
             feedback="The mehndi design was exactly what I envisioned for my wedding. The artist's skill and professionalism made the experience truly memorable!"
             rating={5}
+            reviewCount={5}
           />
           <Testimonial
             name="Priya Deshmukh"
             feedback="Amazing designs and exceptional attention to detail! My bridal mehndi turned out to be stunning, and everyone loved it. Highly recommended!"
             rating={5}
+            reviewCount={5}
           />
           <Testimonial
             name="Riya Mehta"
             feedback="The artist was punctual, creative, and very friendly. The mehndi was not just beautiful but also lasted long. Would definitely book again!"
             rating={5}
+            reviewCount={5}
           />
           <Testimonial
             name="Deepa Nair"
             feedback="Beautiful designs and a very professional approach! The mehndi artist made sure every pattern was perfect. Absolutely loved it!"
             rating={5}
+            reviewCount={5}
           />
           <Testimonial
             name="Neha Sharma"
             feedback="I got my mehndi done for my sister’s wedding, and I couldn't be happier! The designs were intricate and the color turned out so rich."
             rating={5}
+            reviewCount={5}
           />
           <Testimonial
             name="Kavita Rao"
             feedback="Such a talented artist! The mehndi was detailed and unique. Everyone at the wedding kept complimenting my hands!"
             rating={5}
+            reviewCount={5}
           />
         </div>
       </div>

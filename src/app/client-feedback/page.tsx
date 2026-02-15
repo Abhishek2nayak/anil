@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Star, Send } from "lucide-react";
-import { mobile_number } from "@/component/sections/HeroSection";
+import { MOBILE_NUMBER } from "@/contstant";
 
 const FeedbackForm = () => {
   const [rating, setRating] = useState<number>(0);
@@ -25,7 +25,7 @@ const FeedbackForm = () => {
 
     try {
       const whatsappMessage = `Feedback from: ${formData.name}%0AEmail: ${formData.email}%0AMobile: ${formData.mobile}%0ARating: ${rating}%0AMessage: ${formData.message}`;
-      const whatsappUrl = `https://wa.me/${mobile_number}?text=${whatsappMessage}`;
+      const whatsappUrl = `https://wa.me/${MOBILE_NUMBER}?text=${whatsappMessage}`;
 
       window.open(whatsappUrl, "_blank");
 
@@ -54,7 +54,7 @@ const FeedbackForm = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({
       ...formData,
@@ -95,8 +95,8 @@ const FeedbackForm = () => {
                     key === "message"
                       ? "textarea"
                       : key === "mobile"
-                      ? "tel"
-                      : "text"
+                        ? "tel"
+                        : "text"
                   }
                   name={key}
                   id={key}

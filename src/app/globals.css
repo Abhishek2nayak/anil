@@ -1,50 +1,76 @@
-/* This file is used to define global styles for the application. */
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Delius+Swash+Caps&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+/* Mehndi Friendly Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;500;600&display=swap");
 
 :root {
-    --primary-bg: #470604;
-    --dark-brown: rgb(76, 43, 22);
-    --medium-brown: rgb(122, 57, 22);
-    --light-yellow: rgb(225, 173, 61);
-    --dark-yellow: rgb(138, 103, 35);
-    --light-brown: rgb(132, 46, 32);
-    --white: #fff;
-    ---dark: #000;
+  /* Brand Colors */
+  --primary-bg: #3b140f;
+  --dark-brown: rgb(76, 43, 22);
+  --medium-brown: rgb(122, 57, 22);
+  --light-yellow: rgb(225, 173, 61);
+  --dark-yellow: rgb(138, 103, 35);
+  --light-brown: rgb(132, 46, 32);
+  --white: #ffffff;
+  --dark: #000000;
+
+  /* Mehndi Fonts */
+  --font-heading: "Yatra One", cursive;
+  --font-body: "Poppins", sans-serif;
 }
 
+/* Body */
 body {
-    background-color: var(--primary-bg);
-    /* font-family: "DM Serif Display", serif; */
-    font-weight: 400;
-    font-style: normal;
+  background-color: var(--primary-bg);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--white);
 }
 
-.navbar {
-    border-bottom: 1px solid var(--dark-brown);
+/* Headings */
+h1,
+h2,
+h3,
+.hero-title,
+.section-title {
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
 }
 
-/* styles/globals.css */
+/* Small decorative titles */
+.mehndi-text {
+  font-family: var(--font-heading);
+}
+
+p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif !important;
+}
+/* Hero overlay */
+.hero-overlay {
+  background-color: rgba(59, 20, 15, 0.6);
+}
+
+/* Infinite Background Grid */
 .infinite-photo-grid {
-    background-image: url("/assets/grid-hero-image.png");
-    background-size: cover;
-    background-repeat: repeat-x;
-    animation: scroll 70s linear infinite;
-    will-change: background-position;
+  background-image: url("/assets/grid-hero-image.png");
+  background-size: cover;
+  background-repeat: repeat-x;
+  animation: scroll 70s linear infinite;
+  will-change: background-position;
 }
 
 @keyframes scroll {
-    from {
-        background-position: left calc(4.84 * min(100vh, 750px)) top 0;
-    }
-    to {
-        background-position: left 0 top 0;
-    }
+  from {
+    background-position: left calc(4.84 * min(100vh, 750px)) top 0;
+  }
+  to {
+    background-position: left 0 top 0;
+  }
 }
 
-
-/* Custom Pulse Animation */
+/* WhatsApp Pulse */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
@@ -54,27 +80,36 @@ body {
   }
 }
 
-/* Apply Pulse animation to WhatsApp button */
 .animate-pulse {
-  animation-name: pulse;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
+  animation: pulse 1.5s ease-out infinite;
 }
 
-
-.animate-instagram {
-  animation-name: insta-pulse;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
-}
-
+/* Instagram Pulse */
 @keyframes insta-pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(203, 32, 39, 0.5);
   }
   80% {
-    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 14px rgba(203, 32, 39, 0);
   }
+}
+
+.animate-instagram {
+  animation: insta-pulse 1.5s ease-out infinite;
+}
+
+/* Fade Slide */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeSlide {
+  animation: fadeSlide 0.25s ease-out;
 }

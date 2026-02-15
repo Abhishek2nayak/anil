@@ -46,16 +46,14 @@ export default function Gallery() {
   return (
     <>
       <div className="text-center mb-12 mt-20">
-        <h1 className="text-4xl font-bold text-yellow-500 mb-4">
-          Our Creations
-        </h1>
-        <p className="text-lg text-yellow-500/80 max-w-2xl mx-auto">
-          Anil Mehndi Art specializes in exquisite mehndi designs, including
-          bridal, Arabic, and traditional styles, perfect for weddings,
-          festivals, and special occasions. Our skilled artists create
-          intricate, long-lasting henna designs using high-quality, natural
-          henna. Book your appointment today and adorn your hands with stunning
-          mehndi art!
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-[YatraOne] text-[var(--light-yellow)] mb-4 text-center">
+          Our Mehndi Creations
+        </h2>
+
+        <p className="text-base sm:text-lg text-white/75 max-w-2xl mx-auto text-center font-[Poppins]">
+          Explore our handcrafted bridal, Arabic, and traditional mehndi
+          designs. Each creation is carefully detailed to give rich colour,
+          elegance, and long-lasting beauty for weddings and special occasions.
         </p>
       </div>
 
