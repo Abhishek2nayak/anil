@@ -2,8 +2,8 @@
    BRAND & BUSINESS DETAILS
 ========================= */
 
-export const BRAND_NAME = "Prince Mehndi";
-export const BRAND_DISPLAY_NAME = "Prince Mehndi";
+export const BRAND_NAME = "Prince Mehndi Madurai";
+export const BRAND_DISPLAY_NAME = "Prince Mehndi Madurai";
 
 export const BUSINESS_TYPE = "Mehndi Artist & Bridal Mehndi Services";
 

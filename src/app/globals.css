@@ -1,7 +1,7 @@
-@import "tailwindcss";
-
 /* Mehndi Friendly Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;500;600&display=swap");
+
+@import "tailwindcss";
 
 :root {
   /* Brand Colors */
@@ -44,8 +44,9 @@ h3,
 }
 
 p {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif !important;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif !important;
 }
 /* Hero overlay */
 .hero-overlay {

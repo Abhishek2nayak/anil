@@ -12,23 +12,23 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Chenni Mehandi Artist</title>
+        <title>Prince Mehandi Madurai</title>
         <meta
           name="description"
-          content="Book the best Mehandi artists across Tamil Nadu, including Chennai and Coimbatore, for weddings, baby showers, and more. Professional designs using 100% organic Mehandi with no side effects."
+          content="Book the best Mehandi artists across Tamil Nadu, including Madurai and Coimbatore, for weddings, baby showers, and more. Professional designs using 100% organic Mehandi with no side effects."
         />
         <meta
           name="keywords"
-          content="Mehandi artists Tamil Nadu, Mehandi artists Chennai, Mehandi artists Coimbatore, organic Mehandi designs, professional Mehandi artist, Tamil Nadu bridal Mehandi, baby shower Mehandi"
+          content="Mehandi artists Tamil Nadu, Mehandi artists Madurai, Mehandi artists Coimbatore, organic Mehandi designs, professional Mehandi artist, Tamil Nadu bridal Mehandi, baby shower Mehandi"
         />
         <meta name="author" content="Bridal Mehandi Art" />
         <meta
           property="og:title"
-          content="Best Mehandi Artists in Tamil Nadu - Chennai, Coimbatore +15 more cities"
+          content="Best Mehandi Artists in Tamil Nadu - Madurai, Coimbatore +15 more cities"
         />
         <meta
           property="og:description"
-          content="Discover exquisite Mehandi services in Tamil Nadu, from weddings to baby showers. Expert Mehandi artists in Chennai, Coimbatore, and beyond. 100% organic designs."
+          content="Discover exquisite Mehandi services in Tamil Nadu, from weddings to baby showers. Expert Mehandi artists in Madurai, Coimbatore, and beyond. 100% organic designs."
         />
         <meta property="og:image" content="/assets/bridal.jpg" />
         {/* <meta property="og:url" content="https://yourwebsite.com" /> */}
