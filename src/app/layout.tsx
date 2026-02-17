@@ -19,38 +19,38 @@ const geistMono = localFont({
 // Metadata Configuration
 export const metadata: Metadata = {
   title:
-    "Anil Mehndi Art | Best Mehndi Artist in Chennai - Home Service Available",
+    "Prince Mehndi Madurai | Best Mehndi Artist in Madurai - Home Service Available",
   description:
-    "Anil Mehndi Art offers professional bridal, Arabic, and traditional Mehndi designs in Chennai. Home service available for weddings, festivals, and special occasions. Book now for expert designs at affordable rates!",
+    "Prince Mehndi Madurai offers professional bridal, Arabic, and traditional Mehndi designs in Madurai. Home service available for weddings, festivals, and special occasions. Book now for expert designs at affordable rates!",
   openGraph: {
     title:
-      "Anil Mehndi Art | Best Mehndi Artist in Chennai - Home Service Available",
+      "Prince Mehndi Madurai | Best Mehndi Artist in Madurai - Home Service Available",
     description:
-      "Anil Mehndi Art provides top-quality bridal, Arabic, and traditional Mehndi designs in Chennai. Enjoy expert artistry with the convenience of home service. Affordable and stunning designs guaranteed!",
-    url: "https://anilmehndiart.com", // Update with actual website URL
-    siteName: "Anil Mehndi Art",
+      "Prince Mehndi Madurai provides top-quality bridal, Arabic, and traditional Mehndi designs in Madurai. Enjoy expert artistry with the convenience of home service. Affordable and stunning designs guaranteed!",
+    url: "https://princemehndimadurai.netlify.app/", // Update with actual website URL
+    siteName: "Prince Mehndi Madurai",
     images: [
       {
-        url: "https://anilmehndiart.combridal-mehndi.jpg", // Replace with actual image URL
+        url: "https://princemehndimadurai.netlify.app/ bridal-mehndi.jpg", // Replace with actual image URL
         width: 1200,
         height: 630,
-        alt: "Anil Mehndi Art - Bridal & Arabic Mehndi in Chennai",
+        alt: "Prince Mehndi Madurai - Bridal & Arabic Mehndi in Madurai",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Anil Mehndi Art | Best Mehndi Artist in Chennai - Home Service Available",
+      "Prince Mehndi Madurai | Best Mehndi Artist in Madurai - Home Service Available",
     description:
-      "Looking for the best Mehndi artist in Chennai? Anil Mehndi Art offers stunning bridal, Arabic, and traditional designs with home service convenience. Book now!",
+      "Looking for the best Mehndi artist in Madurai? Prince Mehndi Madurai offers stunning bridal, Arabic, and traditional designs with home service convenience. Book now!",
   },
   robots: {
     index: true,
     follow: true,
   },
   keywords:
-    "Anil Mehndi Art Chennai, best Mehndi artist Chennai, bridal Mehndi Chennai, Arabic Mehndi Chennai, traditional Mehndi Chennai, home service Mehndi Chennai, wedding Mehndi, festival Mehndi, Mehndi art Chennai",
+    "Prince Mehndi Madurai, best Mehndi artist Madurai, bridal Mehndi Madurai, Arabic Mehndi Madurai, traditional Mehndi Madurai, home service Mehndi Madurai, wedding Mehndi, festival Mehndi, Mehndi art Madurai",
 };
 
 export default function RootLayout({
