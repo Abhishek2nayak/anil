@@ -2,79 +2,33 @@ interface TestimonialProps {
   name: string;
   feedback: string;
   rating: number;
-  reviewCount: number;
-  avatar?: string;
 }
 
-const Testimonial: React.FC<TestimonialProps> = ({
-  name,
-  feedback,
-  rating,
-  reviewCount,
-  avatar,
-}) => {
+export default function Testimonial({ name, feedback, rating }: TestimonialProps) {
   return (
-    <div
-      className="
-      backdrop-blur-xl bg-white/10
-      border border-white/20  
-      rounded-2xl p-6
-      shadow-lg hover:shadow-2xl
-      transition-all duration-300
-      max-w-md w-full
-    "
-    >
-      {/* Header */}
-      <div className="flex items-start gap-4 mb-3">
-        {/* Avatar */}
-        <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-semibold">
-          {avatar ? (
-            <img
-              src={avatar}
-              alt={name}
-              className="w-full h-full rounded-full object-cover"
-            />
-          ) : (
-            name.charAt(0)
-          )}
-        </div>
-
-        <div className="flex-1">
-          <h3 className="text-white font-semibold text-sm">{name}</h3>
-
-          {/* Stars */}
-          <div className="flex items-center gap-1 mt-1">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <svg
-                key={index}
-                viewBox="0 0 24 24"
-                fill={index < rating ? "#F4B400" : "#D1D5DB"}
-                className="w-4 h-4"
-              >
-                <path d="M12 2.75l2.96 6 6.63.96-4.8 4.68 1.13 6.6L12 17.77 6.08 21l1.13-6.6-4.8-4.68 6.63-.96L12 2.75z" />
-              </svg>
-            ))}
-          </div>
-        </div>
-
-        {/* Google Badge */}
-        <div className="flex items-center gap-1">
-          <span className="text-xs text-white/70">Google</span>
-          <span className="w-4 h-4 rounded-full bg-[#4285F4] text-white text-[10px] flex items-center justify-center font-bold">
-            G
-          </span>
-        </div>
+    <div style={{ background: "#fff", borderRadius: "10px", padding: "24px", border: "1px solid rgba(43,10,8,0.08)", boxShadow: "0 1px 8px rgba(43,10,8,0.05)" }}>
+      {/* Stars */}
+      <div style={{ display: "flex", gap: "3px", marginBottom: "14px" }}>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <svg key={i} viewBox="0 0 24 24" fill={i < rating ? "#C8960C" : "#e5e7eb"} width="16" height="16">
+            <path d="M12 2.75l2.96 6 6.63.96-4.8 4.68 1.13 6.6L12 17.77 6.08 21l1.13-6.6-4.8-4.68 6.63-.96L12 2.75z" />
+          </svg>
+        ))}
       </div>
 
-      {/* Review */}
-      <p className="text-sm text-white/80 leading-relaxed">{feedback}</p>
-
-      {/* Footer */}
-      <p className="mt-3 text-xs text-white/50">
-        {reviewCount} reviews · Verified
+      <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.86rem", color: "#3a1008", lineHeight: 1.8, marginBottom: "18px" }}>
+        &ldquo;{feedback}&rdquo;
       </p>
+
+      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ width: "34px", height: "34px", borderRadius: "50%", background: "var(--maroon-deep)", color: "var(--gold)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontSize: "0.95rem", fontWeight: 700, flexShrink: 0 }}>
+          {name.charAt(0)}
+        </div>
+        <div>
+          <div style={{ fontFamily: "var(--font-ui)", fontWeight: 700, fontSize: "0.84rem", color: "var(--maroon-deep)" }}>{name}</div>
+          <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.7rem", color: "#7a3020" }}>Thrissur, Kerala</div>
+        </div>
+      </div>
     </div>
   );
-};
-
-export default Testimonial;
+}

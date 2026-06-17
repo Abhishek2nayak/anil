@@ -1,4 +1,4 @@
-import { TService } from "@/component/sections/ServiceSection";
+type TService = { image: string; alt: string; title: string; price: string; description: string; type: string; };
 import axios from "axios";
 
 type GoogleSheetRow = Record<string, string | undefined>;

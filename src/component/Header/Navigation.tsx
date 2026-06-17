@@ -3,304 +3,128 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { BRAND_NAME } from "@/contstant";
+import { MOBILE_NUMBER, WHATSAPP_URL } from "@/contstant";
 import { useRouter } from "next/navigation";
 
 export default function Navigation() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
-
-  const navActive = activeMenu || mobileOpen;
   const router = useRouter();
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
-      {/* NAVBAR */}
       <nav
-        className={`
-          transition-all duration-300
-          ${
-            navActive
-              ? "bg-gradient-to-b from-[#2a0d0a] to-[#1f0806]"
-              : "bg-[#3b140f]/95 backdrop-blur"
-          }
-          border-b border-[#D4AF37]/50
-          shadow-[0_6px_14px_-6px_rgba(0,0,0,0.7),0_10px_20px_-10px_rgba(212,175,55,0.45)]
-        `}
+        style={{
+          background: "rgba(26,5,4,0.97)",
+          borderBottom: "1px solid rgba(200,150,12,0.3)",
+          backdropFilter: "blur(8px)",
+        }}
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between text-[#f8e9bd]">
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-lg font-semibold tracking-wide hover:text-[#D4AF37] transition flex items-center gap-2"
-          >
-            <img src="/logo.png" alt="logo" width={50} height={50} />
-            {BRAND_NAME}
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+            <img src="/logo.png" alt="Vijay Mehndi" width={40} height={40} style={{ borderRadius: "50%", border: "1.5px solid rgba(200,150,12,0.5)" }} />
+            <div>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem", fontWeight: 700, color: "var(--gold-light)", lineHeight: 1.1 }}>Vijay Mehndi</div>
+              <div style={{ fontFamily: "var(--font-ui)", fontSize: "0.6rem", letterSpacing: "0.18em", color: "rgba(255,255,255,0.4)", textTransform: "uppercase" }}>Thrissur · Kerala</div>
+            </div>
           </Link>
 
-          {/* DESKTOP MENU */}
-          <div className="hidden md:flex gap-10 text-sm uppercase tracking-widest">
-            {["SERVICES", "DESIGN"].map((item) => (
-              <button
-                key={item}
-                onMouseEnter={() => setActiveMenu(item)}
-                className={`relative transition hover:text-[#D4AF37] ${
-                  activeMenu === item ? "text-[#D4AF37]" : ""
-                }`}
-              >
+          {/* Desktop links */}
+          <div className="hidden md:flex" style={{ alignItems: "center", gap: "36px" }}>
+            {["SERVICES", "GALLERY"].map((item) => (
+              <button key={item} onMouseEnter={() => setActiveMenu(item)}
+                style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-ui)", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.14em", color: activeMenu === item ? "var(--gold)" : "rgba(255,255,255,0.7)", transition: "color 0.2s" }}>
                 {item}
               </button>
             ))}
-            <button>
-              <Link
-                className="relative transition hover:text-[#D4AF37] hover:text-[#D4AF37]"
-                href="/about"
-              >
-                ABOUT US
-              </Link>
-            </button>
-            <Link
-              href="/booknow"
-              className="px-4 py-2 rounded-full border border-[#D4AF37]/70 hover:bg-[#D4AF37] hover:text-[#3b140f] transition"
-            >
-              Book Now
-            </Link>
+            <Link href="/about" style={{ fontFamily: "var(--font-ui)", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.14em", color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>ABOUT</Link>
+            <Link href="/booknow" className="btn-gold" style={{ padding: "9px 22px", fontSize: "0.78rem" }}>Book Now</Link>
           </div>
 
-          {/* MOBILE BUTTON */}
-          <button className="md:hidden" onClick={() => setMobileOpen(true)}>
-            <Menu size={26} />
+          {/* Mobile hamburger */}
+          <button className="md:hidden" onClick={() => setMobileOpen(true)} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.8)", cursor: "pointer" }}>
+            <Menu size={22} />
           </button>
         </div>
 
-        {/* DESKTOP MEGA MENU */}
+        {/* Desktop dropdown */}
         {activeMenu && (
-          <div
-            onMouseLeave={() => setActiveMenu(null)}
-            className="absolute top-full left-0 w-full bg-gradient-to-b from-[#2a0d0a] to-[#1a0605] text-[#f8e9bd] hidden md:block
-            border-b border-[#D4AF37]/40
-            shadow-[0_12px_24px_-10px_rgba(0,0,0,0.8),0_16px_32px_-12px_rgba(212,175,55,0.45)]"
-          >
-            <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-4 gap-12 animate-fadeSlide">
-              {activeMenu !== "SERVICES" && (
-                <MenuColumn
-                  title={activeMenu}
-                  items={["All Designs", "All Services"]}
-                  onClick={(item) => {
-                    if (item === "All Designs") {
-                      router.push("/mehandi-designs");
-                    }
-                    if (item === "All Services") {
-                      router.push("/mehandi-services");
-                    }
-                  }}
-                />
-              )}
-
-              <MenuColumn
-                title="Services"
-                items={[
-                  "Traditional Mehandi",
-                  "Babyshower Mehandi",
-                  "Arabic Mehandi",
-                  "Legs Mehandi",
-                  "Fullhands Mehandi",
-                  "Portrait Mehandi",
-                ]}
-                onClick={(item) => {
-                  if (item === "Traditional Mehandi") {
-                    router.push("/mehandi-services?category=traditional");
-                  }
-                  if (item === "Babyshower Mehandi") {
-                    router.push("/mehandi-services?category=babyshower");
-                  }
-                  if (item === "Arabic Mehandi") {
-                    router.push("/mehandi-services?category=arabic");
-                  }
-                  if (item === "Legs Mehandi") {
-                    router.push("/mehandi-services?category=legs");
-                  }
-                  if (item === "Fullhands Mehandi") {
-                    router.push("/mehandi-services?category=fullhands");
-                  }
-                  if (item === "Portrait Mehandi") {
-                    router.push("/mehandi-services?category=portrait");
-                  }
-                }}
-              />
-
-              <MenuColumn
-                title="Styles"
-                items={[
-                  "Bridal",
-                  "Traditional",
-                  "Babyshower",
-                  "Arabic",
-                  "Legs",
-                  "Fullhands",
-                  "Portrait",
-                ]}
-                onClick={(item) => {
-                  if (item === "Bridal") {
-                    router.push("/mehandi-design-gallery?category=bridal");
-                  }
-                  if (item === "Traditional") {
-                    router.push("/mehandi-design-gallery?category=traditional");
-                  }
-                  if (item === "Babyshower") {
-                    router.push("/mehandi-design-gallery?category=babyshower");
-                  }
-                  if (item === "Arabic") {
-                    router.push("/mehandi-design-gallery?category=arabic");
-                  }
-                  if (item === "Legs") {
-                    router.push("/mehandi-design-gallery?category=legs");
-                  }
-                  if (item === "Fullhands") {
-                    router.push("/mehandi-design-gallery?category=fullhands");
-                  }
-                  if (item === "Portrait") {
-                    router.push("/mehandi-design-gallery?category=portrait");
-                  }
-                }}
-              />
-              <FeaturedCard />
+          <div onMouseLeave={() => setActiveMenu(null)} className="hidden md:block animate-fadeSlide"
+            style={{ background: "#1a0504", borderBottom: "1px solid rgba(200,150,12,0.2)", boxShadow: "0 12px 28px rgba(0,0,0,0.5)" }}>
+            <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px", display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "40px" }}>
+              <div>
+                <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", color: "var(--gold)", textTransform: "uppercase", marginBottom: "14px" }}>Services</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+                  {["Bridal Mehndi","Arabic Mehndi","Engagement Mehndi","Baby Shower Mehndi","Leg Mehndi","Portrait Mehndi"].map((s) => (
+                    <li key={s} onClick={() => { router.push(`/mehandi-services?category=${s.toLowerCase().replace(/ mehndi/,"").replace(/ /,"-")}`); setActiveMenu(null); }}
+                      style={{ cursor: "pointer", fontFamily: "var(--font-ui)", fontSize: "0.84rem", color: "rgba(255,255,255,0.65)" }}>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", color: "var(--gold)", textTransform: "uppercase", marginBottom: "14px" }}>Designs</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
+                  {["Bridal","Traditional","Arabic","Babyshower","Legs","Fullhands"].map((s) => (
+                    <li key={s} onClick={() => { router.push(`/mehandi-design-gallery?category=${s.toLowerCase()}`); setActiveMenu(null); }}
+                      style={{ cursor: "pointer", fontFamily: "var(--font-ui)", fontSize: "0.84rem", color: "rgba(255,255,255,0.65)" }}>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div style={{ borderRadius: "10px", overflow: "hidden", border: "1px solid rgba(200,150,12,0.2)" }}>
+                <img src="/assets/bridal/1.jpeg" alt="Bridal mehndi" style={{ width: "100%", height: "140px", objectFit: "cover" }} />
+                <div style={{ padding: "12px" }}>
+                  <p style={{ fontFamily: "var(--font-display)", fontSize: "0.88rem", color: "rgba(255,255,255,0.85)", marginBottom: "6px" }}>Featured Design</p>
+                  <Link href="/booknow" onClick={() => setActiveMenu(null)} style={{ fontSize: "0.75rem", color: "var(--gold)", textDecoration: "none" }}>Book this style →</Link>
+                </div>
+              </div>
             </div>
           </div>
         )}
       </nav>
 
-      {/* MOBILE FULL SCREEN MENU */}
+      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 bg-gradient-to-b from-[#2a0d0a] to-[#120403] text-[#f8e9bd] z-50 md:hidden flex flex-col">
-          {/* Header */}
-          <div className="flex justify-between items-center px-6 h-20 border-b border-[#D4AF37]/40 shrink-0">
-            <span className="font-semibold tracking-widest text-[#D4AF37]">
-              MENU
-            </span>
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="p-2 rounded-full hover:bg-[#D4AF37]/10 transition"
-            >
-              <X size={26} />
-            </button>
+        <div className="fixed inset-0 z-50 md:hidden flex flex-col" style={{ background: "#1a0504" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px 24px", borderBottom: "1px solid rgba(200,150,12,0.2)" }}>
+            <span style={{ fontFamily: "var(--font-display)", color: "var(--gold)", fontWeight: 700 }}>Vijay Mehndi Thrissur</span>
+            <button onClick={() => setMobileOpen(false)} style={{ background: "none", border: "none", color: "rgba(255,255,255,0.7)", cursor: "pointer" }}><X size={22} /></button>
           </div>
-
-          {/* Scrollable Menu */}
-          <div className="flex-1 overflow-y-auto px-6 py-8 space-y-10 text-lg">
-            {["Services", "Gallery"].map((item) => (
-              <div key={item}>
-                {/* Parent */}
-                <button
-                  onClick={() =>
-                    setMobileSubMenu(mobileSubMenu === item ? null : item)
-                  }
-                  className="flex justify-between items-center w-full uppercase tracking-widest py-2"
-                >
-                  <span>{item}</span>
-                  <ChevronDown
-                    className={`transition-transform duration-300 ${
-                      mobileSubMenu === item ? "rotate-180" : ""
-                    }`}
-                  />
+          <div style={{ flex: 1, overflowY: "auto", padding: "24px" }}>
+            {["Services","Gallery"].map((item) => (
+              <div key={item} style={{ borderBottom: "1px solid rgba(200,150,12,0.12)", marginBottom: "4px" }}>
+                <button onClick={() => setMobileSubMenu(mobileSubMenu === item ? null : item)}
+                  style={{ display: "flex", justifyContent: "space-between", width: "100%", background: "none", border: "none", cursor: "pointer", color: "rgba(255,255,255,0.8)", fontFamily: "var(--font-ui)", fontSize: "0.9rem", fontWeight: 600, letterSpacing: "0.08em", padding: "14px 0" }}>
+                  {item.toUpperCase()}
+                  <ChevronDown size={16} style={{ transform: mobileSubMenu === item ? "rotate(180deg)" : "none", transition: "transform 0.3s", color: "var(--gold)" }} />
                 </button>
-
-                {/* Submenu */}
                 {mobileSubMenu === item && (
-                  <div className="mt-4 ml-4 space-y-3 text-base border-l border-[#D4AF37]/30 pl-5">
-                    {[
-                      "Bridal",
-                      "Traditional",
-                      "Babyshower",
-                      "Arabic",
-                      "Legs",
-                      "Fullhands",
-                      "Portrait",
-                    ].map((sub) => (
-                      <Link
-                        key={sub}
-                        href={`${mobileSubMenu === "Services" ? "/mehandi-services" : "/mehandi-design-gallery"}?category=${sub.toLowerCase().replace(" ", "-")}`}
-                        className="block py-2 px-2 rounded-md text-[#f8e9bd]/90 hover:text-[#D4AF37] hover:bg-[#D4AF37]/10 transition"
-                      >
-                        {sub}
+                  <div style={{ paddingLeft: "16px", borderLeft: "2px solid var(--gold)", marginBottom: "14px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                    {["Bridal","Traditional","Arabic","Babyshower","Legs","Portrait"].map((sub) => (
+                      <Link key={sub} href={`${item === "Services" ? "/mehandi-services" : "/mehandi-design-gallery"}?category=${sub.toLowerCase()}`}
+                        onClick={() => setMobileOpen(false)}
+                        style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", fontFamily: "var(--font-ui)", fontSize: "0.85rem" }}>
+                        {sub} Mehndi
                       </Link>
                     ))}
                   </div>
                 )}
               </div>
             ))}
-
-            {/* Bottom Links */}
-            <div className="pt-8 space-y-6 border-t border-[#D4AF37]/40">
-              <Link
-                href="/about"
-                onClick={() => setMobileOpen(false)}
-                className="block tracking-wide hover:text-[#D4AF37] transition"
-              >
-                About
-              </Link>
-
-              <Link
-                href="/booknow"
-                onClick={() => setMobileOpen(false)}
-                className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#3b140f] transition font-medium"
-              >
-                Book Now
-              </Link>
+            <Link href="/about" onClick={() => setMobileOpen(false)} style={{ display: "block", color: "rgba(255,255,255,0.8)", textDecoration: "none", fontFamily: "var(--font-ui)", fontWeight: 600, letterSpacing: "0.08em", padding: "14px 0", borderBottom: "1px solid rgba(200,150,12,0.12)", marginBottom: "24px" }}>ABOUT</Link>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              <a href={`tel:${MOBILE_NUMBER}`} className="btn-gold" style={{ justifyContent: "center" }}>📞 +91 {MOBILE_NUMBER}</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", padding: "13px", borderRadius: "8px", background: "#25D366", color: "#fff", textDecoration: "none", fontFamily: "var(--font-ui)", fontWeight: 700 }}>💬 WhatsApp Us</a>
             </div>
           </div>
         </div>
       )}
     </header>
-  );
-}
-
-/* ===== Components ===== */
-
-function MenuColumn({
-  title,
-  items,
-  onClick,
-}: {
-  title: string;
-  items: string[];
-  onClick: (item: string) => void;
-}) {
-  return (
-    <div>
-      <h4 className="mb-4 text-xs tracking-widest text-[#D4AF37] uppercase">
-        {title}
-      </h4>
-      <ul className="space-y-3 text-sm">
-        {items.map((item) => (
-          <li
-            key={item}
-            className="hover:text-[#D4AF37] cursor-pointer transition"
-            onClick={() => onClick(item)}
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function FeaturedCard() {
-  return (
-    <div className="rounded-xl overflow-hidden border border-[#D4AF37]/40 shadow-[0_10px_24px_-10px_rgba(0,0,0,0.8)]">
-      <img
-        src="/grid_1.png"
-        alt="Featured"
-        className="w-full h-48 object-cover"
-      />
-      <div className="p-4">
-        <p className="text-sm mb-2">Featured Bridal Design</p>
-        <Link href="/booknow" className="text-xs text-[#D4AF37] underline">
-          Book Now →
-        </Link>
-      </div>
-    </div>
   );
 }

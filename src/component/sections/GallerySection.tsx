@@ -1,91 +1,39 @@
 "use client";
-
-import Section from "../ui/SectionWrapper";
-import { Button } from "../ui/Button";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
-import { API_Response, fetchGoogleSheetData } from "@/app/getGoogleSheetData";
+import { useMemo } from "react";
 import imagesData, { ServiceImage } from "@/api";
 
-type ImageCardProps = {
-  src: string;
-  alt: string;
-};
-
-const ImageCard: React.FC<ImageCardProps> = ({ src, alt }) => {
-  return (
-    <div className="w-80">
-      <img
-        className="w-full  object-cover rounded-lg"
-        style={{ height: "400px" }}
-        src={src}
-        alt={alt}
-      />
-    </div>
-  );
-};
-
 export default function Gallery() {
-  const services: ServiceImage[] = useMemo(() => {
-    const categoryMap = new Map();
-
-    // Group images by category and store only 2 per category
-    imagesData.forEach((image) => {
-      if (!categoryMap.has(image.category)) {
-        categoryMap.set(image.category, []);
-      }
-      if (categoryMap.get(image.category).length < 2) {
-        categoryMap.get(image.category).push(image);
-      }
+  const photos: ServiceImage[] = useMemo(() => {
+    const seen = new Map<string, ServiceImage[]>();
+    imagesData.forEach((img) => {
+      if (!seen.has(img.category)) seen.set(img.category, []);
+      if ((seen.get(img.category)?.length ?? 0) < 2) seen.get(img.category)?.push(img);
     });
-
-    return Array.from(categoryMap.values()).flat();
+    return Array.from(seen.values()).flat();
   }, []);
 
   return (
-    <>
-      <div className="text-center mb-12 mt-20">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-[YatraOne] text-[var(--light-yellow)] mb-4 text-center">
-          Our Mehndi Creations
-        </h2>
+    <section className="sec-cream" style={{ padding: "96px 24px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
-        <p className="text-base sm:text-lg text-white/75 max-w-2xl mx-auto text-center font-[Poppins]">
-          Explore our handcrafted bridal, Arabic, and traditional mehndi
-          designs. Each creation is carefully detailed to give rich colour,
-          elegance, and long-lasting beauty for weddings and special occasions.
-        </p>
-      </div>
+        <div style={{ marginBottom: "48px" }}>
+          <p style={{ fontFamily: "var(--font-ui)", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "12px" }}>Our Work</p>
+          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.8rem,4vw,2.6rem)", color: "var(--maroon-deep)" }}>Mehndi Design Gallery</h2>
+        </div>
 
-      <div className="flex flex-wrap gap-10 w-full justify-center items-center">
-        {services.slice(0, 10).map((image, index) => (
-          <ImageCard key={index} src={image.img} alt={image.alt} />
-        ))}
-      </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))", gap: "12px", marginBottom: "36px" }}>
+          {photos.slice(0,10).map((img, i) => (
+            <div key={i} style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid rgba(43,10,8,0.1)" }}>
+              <img src={img.img} alt={img.alt} style={{ width: "100%", height: "220px", objectFit: "cover", display: "block" }} />
+            </div>
+          ))}
+        </div>
 
-      {/* CTA Button */}
-      <div className="text-center mt-10">
-        <Link href="/mehandi-design-gallery">
-          <button
-            className="px-6 py-3 text-yellow-500 font-semibold transition-all duration-300 shadow-lg relative overflow-hidden group"
-            style={{
-              transform: "skewX(-20deg)", // Creates the parallelogram shape
-              border: "2px solid #FFD700", // Golden border
-              backgroundColor: "transparent", // Transparent background
-            }}
-          >
-            <span className="relative z-10 text-yellow-500 block transform skewX(10deg) group-hover:text-slate-900 transition-all duration-300">
-              See all Creations
-              <ArrowRight className="ml-2 inline-block" />
-            </span>
-            {/* Golden background on hover */}
-            <div
-              className="absolute inset-0 bg-yellow-500 transform -skewX(-20deg) scale-x-0 group-hover:scale-x-100 origin-left transition-all duration-300"
-              style={{ zIndex: 0 }}
-            ></div>
-          </button>
+        <Link href="/mehandi-design-gallery" className="btn-outline-maroon" style={{ fontSize: "0.85rem" }}>
+          View Full Gallery →
         </Link>
       </div>
-    </>
+    </section>
   );
 }

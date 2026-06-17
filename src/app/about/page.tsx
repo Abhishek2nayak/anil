@@ -1,89 +1,97 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import {
-  MapPin,
-  Award,
-  Users,
-  Calendar,
-  ArrowRight,
-  PhoneCall,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { MOBILE_NUMBER } from "@/contstant";
 
 const About: React.FC = () => {
-  const handleCall = () => {
-    window.location.href = `tel:${MOBILE_NUMBER}`;
-  };
   return (
     <>
-      <section id="about" className=" py-20 md:px-20 lg:px-24">
+      <section id="about" className="py-20 md:px-20 lg:px-24" style={{ background: "linear-gradient(to bottom, #1a0a05, #2e0f08)" }}>
         <div className="container mx-auto px-4 space-y-24">
-          {/* ABOUT THE HENNA VIBE */}
+
+          {/* ABOUT VIJAY MEHNDI */}
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Text */}
             <div>
-              <span className="text-sm uppercase tracking-wide text-yellow-600 font-semibold">
-                About The Henna Vibe
-              </span>
+              <span className="section-badge">About Us</span>
 
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-yellow-600 leading-snug">
-                Madurai’s Most Trusted Mehndi Artist Team
-              </h2>
+              <h1
+                className="mt-4 text-3xl md:text-4xl font-bold leading-snug"
+                style={{ fontFamily: "var(--font-heading)", color: "var(--gold)" }}
+              >
+                Thrissur&rsquo;s Most Trusted Mehndi Artist
+              </h1>
 
-              <div className="mt-6 space-y-4 text-yellow-600 text-sm leading-relaxed">
+              <div className="mt-6 space-y-4 text-white/80 text-base leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
                 <p>
-                  Founded by <strong>Arun</strong>, Prince Mehndi Madurai has
-                  become a leading name in{" "}
-                  <strong>bridal mehndi services in Madurai</strong>. From
-                  traditional Indian bridal designs to Arabic, Mandala, and Baby
+                  <strong className="text-white">Vijay Mehndi Thrissur</strong> has become a leading name in{" "}
+                  <strong>bridal mehndi services in Thrissur, Kerala</strong>. From
+                  traditional Kerala bridal designs to Arabic, Indo-Arabic, and Baby
                   Shower Mehndi, every stroke reflects elegance and precision.
                 </p>
 
                 <p>
                   We proudly use{" "}
                   <strong>100% natural, chemical-free henna</strong> to ensure
-                  safe application and rich, long-lasting color.
+                  safe application and rich, long-lasting colour.
                 </p>
 
                 <p>
                   Our services are available across{" "}
-                  <strong>Madurai and nearby areas</strong> for weddings, Karwa
-                  Chauth, Eid, Diwali, and festive celebrations.
+                  <strong>Thrissur and nearby areas</strong> — including Guruvayur,
+                  Irinjalakuda, Chalakudy, and Kunnamkulam — for weddings, Onam,
+                  Vishu, Eid, and all festive celebrations.
                 </p>
               </div>
 
-              <button className="mt-8 inline-flex items-center gap-2 border border-yellow-500 px-6 py-3 text-sm font-semibold text-yellow-700 hover:bg-yellow-500 hover:text-black transition rounded-md">
+              <Link
+                href="/booknow"
+                className="mt-8 inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold transition rounded-md"
+                style={{
+                  border: "1px solid var(--gold)",
+                  color: "var(--gold)",
+                  fontFamily: "var(--font-ui)",
+                }}
+              >
                 Book Your Mehndi Session
                 <ArrowRight size={16} />
-              </button>
+              </Link>
+            </div>
+
+            {/* Image */}
+            <div className="hidden md:flex justify-center">
+              <img
+                src="/assets/bridal/1.jpeg"
+                alt="Vijay Mehndi Thrissur Kerala"
+                className="rounded-xl w-80 h-96 object-cover border border-[var(--gold)]/30"
+              />
             </div>
           </div>
 
           {/* WHY CHOOSE US */}
           <div>
-            <span className="text-sm uppercase tracking-wide text-yellow-600 font-semibold">
-              Why Choose The Henna Vibe
-            </span>
+            <span className="section-badge">Why Choose Us</span>
 
-            <h3 className="mt-3 text-3xl font-bold text-red-500">
-              Experience. Artistry. Perfection.
-            </h3>
+            <h2
+              className="mt-4 text-3xl font-bold"
+              style={{ fontFamily: "var(--font-heading)", color: "var(--gold)" }}
+            >
+              Experience. Artistry. Tradition.
+            </h2>
 
             <div className="mt-10 space-y-4 max-w-4xl">
               {[
-                "12+ Years of Experience — Leading mehndi artists in Madurai with expertise in traditional and modern styles.",
-                "Home Service Available — Enjoy personalized mehndi sessions at your convenience anywhere in Madurai.",
-                "100% Organic & Safe Mehndi — Natural, chemical-free henna with deep, long-lasting color.",
-                "Team of 15+ Skilled Artists — Professional and creative artists for every occasion.",
+                "10+ Years of Experience — Leading mehndi artists in Thrissur with expertise in traditional Kerala and modern Arabic styles.",
+                "Home Service Available — Enjoy personalised mehndi sessions at your convenience anywhere in Thrissur and nearby areas.",
+                "100% Natural & Safe Henna — Chemical-free henna with deep, long-lasting colour and no side effects.",
+                "Professional Artists — Skilled, punctual, and creative artists for every occasion.",
               ].map((text, index) => (
                 <div
                   key={index}
-                  className="flex gap-4 items-start bg-white/5 text-white border-l-4 border-yellow-500 p-4 rounded-md shadow-sm"
+                  className="card-traditional flex gap-4 items-start p-4"
                 >
-                  <span className="text-white font-bold">✓</span>
-                  <p className="text-sm text-white">{text}</p>
+                  <span className="text-[var(--gold)] font-bold">✓</span>
+                  <p className="text-sm text-white/80" style={{ fontFamily: "var(--font-body)" }}>{text}</p>
                 </div>
               ))}
             </div>
@@ -91,42 +99,49 @@ const About: React.FC = () => {
 
           {/* OUR VISION */}
           <div className="max-w-4xl">
-            <span className="text-sm uppercase tracking-wide text-white font-semibold">
-              Our Vision
-            </span>
+            <span className="section-badge">Our Vision</span>
 
-            <h3 className="mt-3 text-3xl font-bold text-red">
-              Celebrating Tradition Through Modern Mehndi Art
-            </h3>
+            <h2
+              className="mt-4 text-3xl font-bold"
+              style={{ fontFamily: "var(--font-heading)", color: "var(--gold)" }}
+            >
+              Celebrating Kerala Tradition Through Mehndi Art
+            </h2>
 
-            <p className="mt-6 text-sm text-white-900 leading-relaxed">
-              Our mission is to promote the beauty of traditional Indian henna
+            <p className="mt-6 text-base text-white/75 leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
+              Our mission is to promote the beauty of traditional Kerala henna
               art while blending it with modern creativity. We aim to give every
               client an unforgettable experience — where art meets culture and
               every design tells a story of joy and celebration.
             </p>
 
-            <p className="mt-4 text-sm text-white-900 leading-relaxed">
-              As one of the most loved mehndi artists in Madurai, The Henna Vibe
-              continues to spread happiness, color, and confidence across
-              thousands of celebrations.
+            <p className="mt-4 text-base text-white/70 leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
+              As one of the most loved mehndi artists in Thrissur, Vijay Mehndi
+              continues to spread happiness, colour, and confidence across
+              thousands of celebrations in Kerala.
             </p>
           </div>
 
           {/* STATS */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: "5★", text: "Top Rated Service" },
+              { label: "4.9★", text: "Top Rated Service" },
               { label: "50+", text: "Unique Designs" },
-              { label: "3000+", text: "Happy Clients" },
-              { label: "12+", text: "Years Experience" },
+              { label: "10,000+", text: "Happy Clients" },
+              { label: "10+", text: "Years Experience" },
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-yellow-500/90 rounded-xl p-6 text-center shadow-md"
+                className="rounded-xl p-6 text-center shadow-md border border-[var(--gold)]/30"
+                style={{ background: "rgba(200,150,12,0.1)" }}
               >
-                <h4 className="text-3xl font-bold text-black">{item.label}</h4>
-                <p className="mt-2 text-sm text-red-900">{item.text}</p>
+                <h3
+                  className="text-3xl font-bold"
+                  style={{ fontFamily: "var(--font-heading)", color: "var(--gold)" }}
+                >
+                  {item.label}
+                </h3>
+                <p className="mt-2 text-sm text-white/70" style={{ fontFamily: "var(--font-ui)" }}>{item.text}</p>
               </div>
             ))}
           </div>

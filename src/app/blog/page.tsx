@@ -54,7 +54,7 @@ export default function BlogPage() {
         </h1>
         <p className="max-w-3xl mx-auto text-lg" style={{ color: "#fff" }}>
           Expert bridal mehandi inspiration, Arabic henna trends, traditional
-          patterns and professional tips from Chennai’s trusted mehandi artists.
+          patterns and professional tips from Thrissur’s trusted mehandi artists.
         </p>
       </section>
 
